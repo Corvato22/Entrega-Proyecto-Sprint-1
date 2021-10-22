@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/main.css">
+    <title>Block Master</title>
+</head>
+
+<body>
+
+    <header>
+        <img class="block-buster" src="/Sprint_1/images/logo-blockBuster.png" alt="">
+        <nav>
+            <a href="#" class="active">Todas</a>
+            <a href="#">Más valoradas</a>
+            <a href="#">Menos valoradas</a>
+        </nav>
+        <div class="barra-search">
+            <input type="text" id="inputBuscar" class="input-search" placeholder="Busca tu pelicula favorita" />
+            <button class="btnBuscar" id="btnBuscar"></button>
+        </div>
+    </header>
+
+        <div class="row" id="items"></div>
+        <template id="template-card">
+            <div class="card">
+                <img class="image-cards" src="" alt=""></img>
+                <h3 class="status"></h3>
+            </div>
+        </template>
+
+    <script src="script/script.js"></script>
+</body>
+
+</html>
