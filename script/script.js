@@ -20,7 +20,7 @@ const showData = async () => {
     let movies = await getData();
     movies.forEach(movie => {
         templateCard.querySelector('.image-cards').setAttribute("src", IMG_PATH + movie.poster_path);
-        templateCard.querySelector('.status').textContent = movie.vote_average;
+        templateCard.querySelector('.vote-average').textContent = movie.vote_average;
         const clone = templateCard.cloneNode(true);
         fragment.appendChild(clone);
     });
@@ -39,7 +39,7 @@ btn.addEventListener('click', async () => {
     let searching = dataBase.filter(movie => movie.original_title.toLowerCase() === text.toLowerCase())
     searching.forEach(movie => {
         templateCard.querySelector('.image-cards').setAttribute("src", IMG_PATH + movie.poster_path);
-        templateCard.querySelector('.status').textContent = movie.vote_average;
+        templateCard.querySelector('.vote-average').textContent = movie.vote_average;
 
         const clone = templateCard.cloneNode(true);
         fragment.appendChild(clone);

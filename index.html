@@ -13,25 +13,32 @@
 
     <header>
         <img class="block-buster" src="images/logo-blockMaster.png" alt="">
-        <nav>
+        <div class="container-a">
             <a href="#" class="active">Todas</a>
             <a href="#">Más valoradas</a>
             <a href="#">Menos valoradas</a>
-        </nav>
+        </div>
         <div class="barra-search">
-            <input type="text" id="inputBuscar" class="input-search" placeholder="Busca tu pelicula favorita" />
-            <button class="btnBuscar" id="btnBuscar"></button>
+            <input type="text" id="inputBuscar" class="input-search" placeholder="Busca tu pelicula favorita"/>
+            <button class="btnBuscar" id="btnBuscar"><i class="fas fa-search"></i></button>
         </div>
     </header>
 
-        <div class="row" id="items"></div>
+    <div class="container-cards">
+        <h3 class="head-line">Todas las peliculas</h3>
+        <div class="cards" id="items"></div>
         <template id="template-card">
             <div class="card">
                 <img class="image-cards" src="" alt=""></img>
-                <h3 class="status"></h3>
+                <div class="vote-average-container">
+                    <i class="fas fa-star"></i>
+                    <h3 class="vote-average"></h3>
+                </div>
             </div>
         </template>
+    </div>
 
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <script src="script/script.js"></script>
 </body>
 
