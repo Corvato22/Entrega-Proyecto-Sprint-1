@@ -1,13 +1,6 @@
 {
   "peliculas": [
     {
-      "title": "Dune",
-      "poster_path": "https://image.tmdb.org/t/p/w1280/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
-      "vote_average": 8,
-      "idPelicula": 438631,
-      "id": 2
-    },
-    {
       "title": "Interstellar",
       "poster_path": "https://image.tmdb.org/t/p/w1280/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
       "vote_average": 8.3,
@@ -97,6 +90,34 @@
       "vote_average": 8,
       "idPelicula": 24,
       "id": 15
+    },
+    {
+      "title": "The Vault",
+      "poster_path": "https://image.tmdb.org/t/p/w1280/kWhXubAiIcHW0xn5GThflqaKZqh.jpg",
+      "vote_average": 7,
+      "idPelicula": 630004,
+      "id": 16
+    },
+    {
+      "title": "Free Guy",
+      "poster_path": "https://image.tmdb.org/t/p/w1280/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg",
+      "vote_average": 7.8,
+      "idPelicula": 550988,
+      "id": 17
+    },
+    {
+      "title": "Venom: Let There Be Carnage",
+      "poster_path": "https://image.tmdb.org/t/p/w1280/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg",
+      "vote_average": 6.9,
+      "idPelicula": 580489,
+      "id": 18
+    },
+    {
+      "title": "Dune",
+      "poster_path": "https://image.tmdb.org/t/p/w1280/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+      "vote_average": 8,
+      "idPelicula": 438631,
+      "id": 19
     }
   ]
 }

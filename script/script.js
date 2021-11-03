@@ -10,7 +10,7 @@ const URL_ESTANDAR = 'https://api.themoviedb.org/3/discover/movie?&api_key=3fa24
 const URL_MAS_VALORADAS = 'https://api.themoviedb.org/3/discover/movie?api_key=3fa24de710feb7c63980b6f2b06381f9&language=en-US&sort_by=vote_average.desc&include_adult=false&vote_count.gte=2500&vote_average.gte=7&page='
 const URL_MENOS_VALORADAS = 'https://api.themoviedb.org/3/discover/movie?api_key=3fa24de710feb7c63980b6f2b06381f9&language=en-US&sort_by=vote_average.asc&include_adult=false&vote_count.gte=2500&vote_average.te=7&page='
 const URL_SEARCH = 'https://api.themoviedb.org/3/search/movie?api_key=3fa24de710feb7c63980b6f2b06381f9&language=en-US&include_adult=false&query='
-const URL_CRUD_PELICULAS = 'http://localhost:4001/peliculas'
+const URL_CRUD_PELICULAS = 'http://localhost:4001/peliculas/'
 const IMG_PATH = `https://image.tmdb.org/t/p/w1280`
 //! const API_KEY = '3fa24de710feb7c63980b6f2b06381f9'
 
@@ -186,7 +186,7 @@ MENOSVALORADAS.addEventListener('click', async () => {
     })
     insertarAtributos();
 });
-
+let dataBase = undefined;
 //* Menu ver después
 VERDESPUES.addEventListener('click', async () => {
     notscroll = true;
@@ -195,7 +195,7 @@ VERDESPUES.addEventListener('click', async () => {
     MENOSVALORADAS.setAttribute("class", "");
     TODAS.setAttribute("class", "");
     VERDESPUES.setAttribute("class", "active");
-    let dataBase = await GET_CRUD_PELICULAS();
+    dataBase = await GET_CRUD_PELICULAS();
     console.log(dataBase)
     dataBase.forEach(movie => {
         document.querySelector('.head-line').textContent = 'Ver después'
@@ -312,7 +312,7 @@ items.onclick = async function (e) {
         e.preventDefault();
         console.log("Click")
         MODALMOVIES.style.display = "flex";
-        
+
         let idMovieSeleccionada = e.target.parentNode.id;
         let urlMovieDetails = `https://api.themoviedb.org/3/movie/${idMovieSeleccionada}?api_key=3fa24de710feb7c63980b6f2b06381f9&append_to_response=videos`;
         let response = await fetch(urlMovieDetails);
@@ -334,6 +334,7 @@ items.onclick = async function (e) {
                 <div class="modal-container-botones">
                     <button id="botonAhoraModal" class="boton-ahora-modal">&#9654; VER AHORA</button>
                     <button id="botonDespuesModal" class="boton-despues-modal">&#43; VER DESPUÉS</button>
+                    <button id="botonEliminarModal" class="boton-eliminar-modal">&times ELIMINAR</button>
                 </div>
                 <div id="modalContainerTrailer" class="modal-container-trailer">
                     <iframe id="trailerWindow" src="https://www.youtube.com/embed/${(details.videos.results[0].key)}"
@@ -348,11 +349,16 @@ items.onclick = async function (e) {
         let modalContainerTrailer = document.getElementById("modalContainerTrailer");
         let botonAhoraModal = document.getElementById("botonAhoraModal");
         let botonDespuesModal = document.getElementById("botonDespuesModal");
+        let botonEliminarModal = document.getElementById("botonEliminarModal");
         let spanModalMovies = document.getElementById("closeModalMovies");
         let trailerWindow = document.getElementById("trailerWindow");
 
         if (VERDESPUES.classList.contains('active')) {
             botonDespuesModal.style.display = "none";
+        }
+
+        if (VERDESPUES.classList.contains('active')) {
+            botonEliminarModal.style.display = "block";
         }
 
         botonAhoraModal.addEventListener('click', () => {
@@ -383,7 +389,7 @@ items.onclick = async function (e) {
             poster_path = (IMG_PATH + details.poster_path)
             vote_average = details.vote_average
             idPelicula = details.id
-            
+
             await fetch(URL_CRUD_PELICULAS, {
                 method: 'POST',
                 body: JSON.stringify({
@@ -396,6 +402,19 @@ items.onclick = async function (e) {
                     "Content-Type": "application/json; charset=UTF-8"
                 }
             })
+            e.preventDefault();
+        }
+
+        botonEliminarModal.onclick = async function (e) {
+            let movieToDelete = dataBase.filter((element) => {
+                return element.idPelicula == parseInt(idMovieSeleccionada)
+            })
+            console.log(movieToDelete, idMovieSeleccionada, dataBase)
+            if (movieToDelete.length) {
+                await fetch(URL_CRUD_PELICULAS + movieToDelete[0].id, {
+                    method: 'DELETE',
+                })
+            }
             e.preventDefault();
         }
     }

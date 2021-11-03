@@ -132,7 +132,8 @@
     font-weight: bold;
     padding: 10px 24px;
     border-radius: 4px;
-    color: var(--main-black-color);;
+    color: var(--main-black-color);
+    ;
     background-color: var(--main-yellow-color);
     border: 1px solid var(--main-yellow-color);
     margin-right: 20px;
@@ -145,7 +146,8 @@
 
 .modal-container-botones .boton-ahora-modal:hover {
     transition: .4s;
-    background-color: var(--main-black-color);;
+    background-color: var(--main-black-color);
+    ;
     color: var(--main-yellow-color);
 }
 
@@ -155,7 +157,7 @@
     padding: 10px 24px;
     border-radius: 4px;
     color: var(--main-yellow-color);
-    background-color: var(--main-black-color);;
+    background-color: var(--main-black-color);
     border: 1px solid var(--main-yellow-color);
     margin-right: 20px;
     cursor: pointer;
@@ -171,12 +173,36 @@
     color: var(--main-black-color);
 }
 
+.modal-container-botones .boton-eliminar-modal {
+    display: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 10px 24px;
+    border-radius: 4px;
+    color: var(--main-yellow-color);
+    background-color: var(--main-black-color);
+    border: 1px solid var(--main-yellow-color);
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 40%;
+    transition: .4s;
+    z-index: 3;
+}
+
+.modal-container-botones .boton-eliminar-modal:hover {
+    transition: .4s;
+    background-color: var(--main-yellow-color);
+    color: var(--main-black-color);
+}
+
 /*! ------------------------------------------TRAILER---------------------------------------- !*/
 
 .modal-container-trailer {
     display: none;
     margin-top: 50px;
-}  
+}
+
 .modal-container-trailer iframe {
     width: 100%;
     aspect-ratio: 16/9;
