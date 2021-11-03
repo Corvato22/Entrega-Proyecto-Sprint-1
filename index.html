@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style/main.css">
+    <link rel="stylesheet" href="style/register.css">
+    <link rel="stylesheet" href="style/modal-movies.css">
+    <link rel="stylesheet" href="style/splide.min.css">
+    <script src="script/splide.min.js"></script>
     <title>Block Master</title>
 </head>
 
@@ -14,23 +18,34 @@
     <header>
         <img class="block-buster" src="images/logo-blockMaster.png" alt="">
         <div class="container-a">
-            <a href="#" class="active">Todas</a>
-            <a href="#">Más valoradas</a>
-            <a href="#">Menos valoradas</a>
+            <a id="todas" href="#" class="active">Todas</a>
+            <a id="mas-valoradas" href="#">Más valoradas</a>
+            <a id="menos-valoradas" href="#">Menos valoradas</a>
+            <a id="ver-despues" href="#">Ver después</a>
         </div>
         <div class="barra-search">
-            <input type="text" id="inputBuscar" class="input-search" placeholder="Busca tu pelicula favorita"/>
+            <input type="text" id="inputBuscar" class="input-search" placeholder="Busca tu pelicula favorita" />
             <button class="btnBuscar" id="btnBuscar"><i class="fas fa-search"></i></button>
         </div>
     </header>
 
+    <div class="splide">
+        <div class="splide__track">
+            <ul class="splide__list">
+            </ul>
+        </div>
+    </div>
+
     <div class="container-cards">
-        <h3 class="head-line">Todas las peliculas</h3>
+        <div class="container-head-line">
+            <h3 class="head-line">Todas las películas</h3>
+        </div>
+
         <div class="cards" id="items"></div>
         <template id="template-card">
             <div class="card">
                 <img class="image-cards" src="" alt=""></img>
-                <div class="vote-average-container">
+                <div id="container-vote-average">
                     <i class="fas fa-star"></i>
                     <h3 class="vote-average"></h3>
                 </div>
@@ -38,8 +53,56 @@
         </template>
     </div>
 
+    <button id="btnUser"><i class="fas fa-user"></i></button>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <div class="container-title">
+                <h3>Registro</h3>
+                <span id="close-modal" class="close">&times;</span>
+            </div>
+            <form id="formulario">
+                <div class="campo">
+                    <input id="name" name="name" type="text" placeholder="Nombre">
+                </div>
+                <div class="campo">
+                    <input id="lastName" name="lastName" type="text" placeholder="Apellido">
+                </div>
+                <div class="campo">
+                    <input id="email" name="email" type="text" placeholder="Email">
+                </div>
+                <div class="campo">
+                    <input id="id" name="id" type="text" placeholder="ID" readonly>
+                </div>
+                <div class="boton-form">
+                    <button id="btnGuardar" type="submit">Guardar <i class="fas fa-user-plus"></i></button>
+                </div>
+                <div class="boton-form">
+                    <button id="btnCorreo" type="button">Buscar por correo <i class="far fa-envelope"></i></button>
+                </div>
+                <div class="boton-form">
+                    <button id="btnEditar" type="button">Editar <i class="fas fa-user-edit"></i></button>
+                </div>
+                <div class="boton-form">
+                    <button id="btnEliminar" type="button">Eliminar<i class="fas fa-user-times"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalMovies" class="modal-movies">
+        <div id="modalContainerMovies" class="modal-container-movies">
+            <span id="closeModalMovies" class="close-modal-movies">&times;</span>
+        </div>
+    </div>
+
+    <div id="loaderContainer" class="loader-container">
+        <div class="loader"></div>
+    </div>
+
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     <script src="script/script.js"></script>
+    <script src="script/register.js"></script>
 </body>
 
 </html>

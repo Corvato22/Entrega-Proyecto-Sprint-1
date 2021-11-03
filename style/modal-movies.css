@@ -1,0 +1,183 @@
+/*! ------------------------------------------MODAL---------------------------------------- !*/
+
+.modal-movies {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container-movies {
+    padding: 20px;
+    display: flex;
+    background-color: #0f0e16bf;
+    box-shadow: #000000a6 10px 10px 15px 5px;
+    width: 75%;
+    border-radius: 8px;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    backdrop-filter: blur(20px);
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@keyframes animatetop {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+#closeModalMovies {
+    position: relative;
+    top: -25%;
+    right: 0px;
+    bottom: 0px;
+    left: 128%;
+    color: var(--main-yellow-color);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .4s;
+    z-index: 3;
+}
+
+#closeModalMovies:hover {
+    transform: rotate(180deg) scale(1.2);
+    transition: .4s;
+}
+
+.imagen-pelicula-modal {
+    width: 17%;
+    height: auto;
+}
+
+.imagen-pelicula-modal img {
+    position: relative;
+    left: 75px;
+    width: 85%;
+    height: 100%;
+    transform: matrix(1.2, -0.71, 1.22, 0.71, 0, 0);
+    border-radius: 8px;
+}
+
+@media only screen and (max-width: 1148px) {
+    .imagen-pelicula-modal img {
+        position: relative;
+        left: 30px;
+        width: 95%;
+        height: 100%;
+        transform: none;
+        border-radius: 8px;
+    }
+    .imagen-pelicula-modal {
+        width: 35%;
+        height: auto;
+    }
+}
+
+.container-info-pelicula-modal {
+    width: 36%
+}
+
+.container-info-pelicula-modal .titulo-pelicula-modal {
+    width: 100%;
+    font-size: 40px;
+}
+
+.container-info-pelicula-modal .descripcion-pelicula-modal {
+    width: 100%;
+    font-size: 16px;
+}
+
+.container-info-pelicula-modal .datos-pelicula-modal {
+    display: flex;
+    width: 100%;
+    font-size: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    opacity: 90%;
+}
+
+.container-info-pelicula-modal .datos-pelicula-modal h4 {
+    margin-right: 30px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container-info-pelicula-modal .datos-pelicula-modal i {
+    margin-right: 30px;
+    font-size: 8px;
+}
+
+/*! ------------------------------------------BOTONES MODAL---------------------------------------- !*/
+
+.modal-container-botones {
+    display: flex;
+    margin-top: 5%;
+    flex-direction: row;
+    align-items: center;
+}
+
+.modal-container-botones .boton-ahora-modal {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 10px 24px;
+    border-radius: 4px;
+    color: var(--main-black-color);;
+    background-color: var(--main-yellow-color);
+    border: 1px solid var(--main-yellow-color);
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 40%;
+    transition: .4s;
+    z-index: 3;
+}
+
+.modal-container-botones .boton-ahora-modal:hover {
+    transition: .4s;
+    background-color: var(--main-black-color);;
+    color: var(--main-yellow-color);
+}
+
+.modal-container-botones .boton-despues-modal {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 10px 24px;
+    border-radius: 4px;
+    color: var(--main-yellow-color);
+    background-color: var(--main-black-color);;
+    border: 1px solid var(--main-yellow-color);
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 40%;
+    transition: .4s;
+    z-index: 3;
+}
+
+.modal-container-botones .boton-despues-modal:hover {
+    transition: .4s;
+    background-color: var(--main-yellow-color);
+    color: var(--main-black-color);
+}
+
+/*! ------------------------------------------TRAILER---------------------------------------- !*/
+
+.modal-container-trailer {
+    display: none;
+    margin-top: 50px;
+}  
+.modal-container-trailer iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+}
